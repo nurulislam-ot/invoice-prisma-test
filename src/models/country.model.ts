@@ -21,7 +21,7 @@ CountryModel.init(
       unique: true,
     },
   },
-  { timestamps: false, tableName: 'tbl_country', sequelize }
+  { timestamps: false, tableName: 'country', sequelize }
 )
 
 CountryModel.hasOne(CapitalModel, {

@@ -20,7 +20,7 @@ CapitalModel.init(
       allowNull: false,
     },
   },
-  { sequelize, tableName: 'Capital', timestamps: false }
+  { sequelize, tableName: 'capital', timestamps: false }
 )
 
 export default CapitalModel

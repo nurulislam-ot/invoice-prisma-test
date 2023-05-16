@@ -11,9 +11,9 @@ import errorMiddleWare from './middleware/error.middleware'
 import notFoundMiddleWare from './middleware/notFound.middleware'
 
 // database
-// import sequelize from './config/database'
-// import CountryModel from './models/country.model'
-// import CapitalModel from './models/capital.model'
+import sequelize from './config/database'
+import CountryModel from './models/country.model'
+import CapitalModel from './models/capital.model'
 
 process.addListener('uncaughtException', (error) => {
   console.log(error.message)
@@ -29,7 +29,12 @@ app.use(errorMiddleWare)
 app.listen(2023, async () => {
   try {
     console.log('Server is running on port: 2023')
-    // await sequelize.authenticate()
+    await sequelize.authenticate()
+    const country = await CountryModel.findOne({
+      where: { name: 'Bangladesh' },
+    })
+    if (country) {
+    }
     // console.log('Database connected.')
   } catch (error) {
     console.log(error)
